@@ -1,0 +1,22 @@
+Patient table
+create table patient(fname varchar(50) NOT NULL,lname varchar(50) NOT NULL,age int NOT NULL,Mob_no varchar(15),lastSeen varchar(32),P_Id int NOT NULL,weight int,height int, PRIMARY KEY(P_Id));
+insert into patient values("John","Tommy",72,"12345678","16/10/2021",12,75,175);
+
+
+Login table
+create table login(usrname varchar(255),password varchar(255));
+insert into login values("John","jon8");
+
+Doctor table
+create table doctor(name varchar(50),Mob_no varchar(15),D_Id int,Specializtion varchar(50),PRIMARY KEY(D_Id));
+insert into doctor values("David",997779923,1,"Orthopedics");
+insert into doctor values("James",997765433,2,"Neurology");
+
+Medicines table
+create table medicines(name varchar(100),M_Id int,PRIMARY KEY(M_Id));
+insert into medicines values("Paracetamol",1);
+insert into medicines values("Vitamin A",2);
+insert into medicines values("Vicodin",3);
+
+patient_medicine_doctor
+create table patient_medicine(P_Id int,D_Id int,M_Id int,qty int,DoI varchar(32),PRIMARY KEY(P_Id,D_Id,M_Id),FOREIGN KEY(P_Id) REFERENCES patient(P_Id),FOREIGN KEY(D_Id) REFERENCES doctor(D_Id),FOREIGN KEY(P_Id) REFERENCES medicines(M_Id));
