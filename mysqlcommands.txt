@@ -20,16 +20,16 @@ insert into login values("Don","dON",16);
 
 
 Doctor table
-create table doctor(name varchar(50),Mob_no varchar(15),D_Id int,Specializtion varchar(50),PRIMARY KEY(D_Id));
+create table doctor(dname varchar(50),Mob_no varchar(15),D_Id int,Specializtion varchar(50),PRIMARY KEY(D_Id));
 insert into doctor values("David",997779923,1,"Orthopedics");
 insert into doctor values("James",997765433,2,"Neurology");
 
 Medicines table
-create table medicines(name varchar(100),M_Id int,PRIMARY KEY(M_Id));
+create table medicines(mname varchar(100),M_Id int,PRIMARY KEY(M_Id));
 insert into medicines values("Paracetamol",1);
 insert into medicines values("Vitamin A",2);
 insert into medicines values("Vicodin",3);
 
 patient_medicine
-create table patient_medicine(P_Id int,D_Id int,M_Id int,qty int,DoI varchar(32),PRIMARY KEY(P_Id,D_Id,M_Id),FOREIGN KEY(P_Id) REFERENCES patient(P_Id),FOREIGN KEY(D_Id) REFERENCES doctor(D_Id),FOREIGN KEY(P_Id) REFERENCES medicines(M_Id));
+create table patient_medicine(P_Id int,D_Id int,M_Id int,qty int,DoI varchar(32),PRIMARY KEY(P_Id,D_Id,M_Id));
 insert into patient_medicine values(16,1,2,10,"22/12/2021");
